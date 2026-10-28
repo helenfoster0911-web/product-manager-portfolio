@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies · Architect → Product Manager</title>
+  <meta
+    name="description"
+    content="两个自主产品实践案例：3D 打印数字平台、工业微型无人机应急搜救方案。"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body id="top">
+
+  <!-- ========== 顶部导航 ========== -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">PRODUCT PORTFOLIO</a>
+
+      <button class="nav__toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="index.html#journey">My Journey</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__dropdown-toggle is-active" type="button"
+                  aria-haspopup="true" aria-expanded="false">Case Studies</button>
+          <div class="nav__dropdown">
+            <a href="#project-3dprint">3D 打印数字平台</a>
+            <a href="#project-drone">微型无人机搜救方案</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         项目一：3D 打印数字平台（5 个章节）
+         ============================================================ -->
+    <div class="container case-content-start project-3d">
+      <header class="project-block__header reveal" id="project-3dprint">
+        <p class="project-block__label">PROJECT 01</p>
+        <div>
+          <h2>3D 打印数字平台</h2>
+          <p>
+            研究<strong>参数化建模与 AI 辅助设计</strong>在 3D 打印数字化设计流程中的应用机会。
+            现有产出包括用户痛点梳理、需求挖掘、竞品分析、创意工具 PRD 与功能架构；
+            已完成模板库、极简模式编辑、专业模式编辑三张核心 Figma 概念界面，尚未开发实现。
+          </p>
+          <div class="project-block__badges">
+            <span class="badge">行业研究</span>
+            <span class="badge">需求挖掘</span>
+            <span class="badge">创意工具 PRD</span>
+            <span class="badge badge--neutral">核心概念界面已完成</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 章节 1-1 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <div>
+            <h3>行业研究与竞品分析</h3>
+            <p>梳理 3D 打印数字化设计赛道的行业格局与代表性产品。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <style>
+            /* 折叠入口（原生 details/summary，项目一第 01–04 章共用；轻量文字样式，沿用站点变量） */
+            .fold > summary {
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              cursor: pointer;
+              list-style: none;
+              user-select: none;
+              font-size: 0.85rem;
+              font-weight: 600;
+              color: var(--primary, #7c5cfc);
+              padding: 4px 0;
+            }
+            .fold > summary::-webkit-details-marker { display: none; }
+            .fold > summary .fold__mark {
+              flex-shrink: 0;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 18px;
+              height: 18px;
+              border: 1px solid var(--border);
+              border-radius: 50%;
+              font-size: 0.78rem;
+              font-weight: 400;
+              line-height: 1;
+              transition: transform 0.2s ease;
+            }
+            .fold[open] > summary .fold__mark { transform: rotate(45deg); }
+            .fold > summary:hover { text-decoration: underline; }
+            .fold[open] > summary { margin-bottom: 4px; }
+
+            /* 第 01 章核心趋势：提升视觉权重、去除分隔线 */
+            .project-3d .point-list--trends li {
+              font-weight: 600;
+              font-size: 0.92rem;
+              border-bottom: 0;
+              padding: 8px 0;
+            }
+            /* 第 01 章竞品矩阵：td 字号与表头一致 */
+            .project-3d .matrix td { font-size: 0.8rem; }
+            /* 第 01 章竞品矩阵：增加纵向栏线（颜色、粗细与横向行线一致） */
+            .project-3d .matrix th,
+            .project-3d .matrix td {
+              border-right: 1px solid var(--border);
+            }
+            .project-3d .matrix th:last-child,
+            .project-3d .matrix td:last-child {
+              border-right: 0;
+            }
+            /* 第 02 章痛点/机会卡：去除条目间灰色分隔线 */
+            .project-3d .card .point-list--joined li {
+              border-bottom: 0;
+            }
+            /* 第 03 章七步任务链：改用圆形编号横排展示 */
+            .project-3d .chain--steps {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0;
+              border: 0;
+              position: relative;
+              margin: 24px 0 28px;
+            }
+            .project-3d .chain--steps > div {
+              border: 0 !important;
+            }
+            .project-3d .chain--steps .chain__corner {
+              display: none;
+            }
+            .project-3d .chain--steps .step-item {
+              flex: 1 1 100px;
+              min-width: 100px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+              padding: 12px 8px;
+              position: relative;
+            }
+            .project-3d .chain--steps .step-item:not(:last-child)::after {
+              content: "";
+              position: absolute;
+              top: 29px;
+              right: -8px;
+              width: 14px;
+              height: 2px;
+              background: var(--primary-soft);
+              pointer-events: none;
+            }
+            .project-3d .chain--steps .step-item:not(:last-child)::before {
+              content: "";
+              position: absolute;
+              top: 26px;
+              right: -10px;
+              width: 0;
+              height: 0;
+              border-top: 4px solid transparent;
+              border-bottom: 4px solid transparent;
+              border-left: 5px solid var(--primary-soft);
+              pointer-events: none;
+            }
+            .project-3d .chain--steps .step-dot {
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              background: var(--primary-tint);
+              border: 2px solid var(--primary-soft);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 0.9rem;
+              font-weight: 700;
+              color: var(--primary, #7c5cfc);
+              line-height: 1;
+              flex-shrink: 0;
+            }
+            .project-3d .chain--steps .step-name {
+              font-size: 16px;
+              font-weight: 500;
+              color: var(--text);
+              text-align: center;
+              line-height: 1.35;
+            }
+            /* 第 04 章功能架构：三栏卡片，与第 02 章 card 样式统一 */
+            .project-3d .fmap-overview {
+              border: 0;
+              margin-top: 20px;
+              gap: 16px;
+            }
+            .project-3d .fmap-overview__item {
+              border: 1px solid var(--border);
+              border-radius: var(--radius-md);
+              background: var(--surface);
+              padding: 26px 24px;
+              box-shadow: 0 4px 20px rgba(29, 29, 31, 0.05);
+            }
+            .project-3d .fmap-overview__item:first-child {
+              padding-left: 24px;
+            }
+            .project-3d .fmap-overview__item:last-child {
+              padding-right: 24px;
+            }
+            .project-3d .fmap-overview h5 {
+              font-size: 1rem;
+              font-weight: 600;
+              color: var(--text);
+              margin: 0 0 12px;
+            }
+            .project-3d .fmap-overview__item ul {
+              list-style: disc;
+              padding-left: 18px;
+              margin: 0;
+            }
+            .project-3d .fmap-overview__item ul li {
+              color: var(--text-secondary);
+              font-size: 0.88rem;
+              line-height: 1.6;
+              padding: 2px 0;
+            }
+            .project-3d .fmap-overview__item .mode-block {
+              margin-bottom: 12px;
+            }
+            .project-3d .fmap-overview__item .mode-block:last-child {
+              margin-bottom: 0;
+            }
+            .project-3d .fmap-overview__item .mode-title {
+              font-size: 0.85rem;
+              font-weight: 600;
+              color: #424245;
+              margin-bottom: 4px;
+            }
+            .project-3d .fmap-overview__item .mode-desc {
+              color: var(--text-secondary);
+              font-size: 0.88rem;
+              line-height: 1.55;
+              margin: 0;
+            }
+          </style>
+          <div class="prose" style="margin-top: 0">
+            <p>
+              桌面研究显示三个核心趋势：
+            </p>
+          </div>
+          <ul class="point-list point-list--trends" style="margin-top: 8px">
+            <li><span class="pnum">1.</span><span>大众化 3D 打印的竞争单位正从软件功能扩展到<strong>"内容 + 工具 + 打印配置 + 服务"的完整工作流</strong></span></li>
+            <li><span class="pnum">2.</span><span>面向大众的参数化主流形态是<strong>"模板 + 滑块 / 表单调整"</strong>，而非专业 CAD</span></li>
+            <li><span class="pnum">3.</span><span>AI 的竞争点正从"生成模型"延伸到<strong>生成后的编辑、检查与打印准备</strong></span></li>
+          </ul>
+
+          <details class="fold" style="margin-top: 16px">
+            <summary><span class="fold__mark">＋</span>展开完整竞品矩阵（4 家对标产品 × 13 项维度）</summary>
+
+          <div class="legend matrix-legend" style="margin-top: 12px">
+            <span><span class="na" style="color: var(--primary-soft)">本轮未覆盖</span>＝现有公开资料不足以判断，未做推断填充</span>
+          </div>
+
+          <div class="table-wrap">
+            <table class="matrix">
+              <colgroup>
+                <col style="width: 140px" />
+                <col style="width: 250px" />
+                <col style="width: 220px" />
+                <col style="width: 240px" />
+                <col style="width: 250px" />
+                <col style="width: 220px" />
+                <col style="width: 250px" />
+                <col style="width: 270px" />
+                <col style="width: 230px" />
+                <col style="width: 250px" />
+                <col style="width: 260px" />
+                <col style="width: 300px" />
+                <col style="width: 280px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>竞品 / 产品</th>
+                  <th>核心定位</th>
+                  <th>低门槛路径</th>
+                  <th>在线建模</th>
+                  <th>参数化能力</th>
+                  <th>AI 生成</th>
+                  <th>编辑与修复</th>
+                  <th>打印准备衔接</th>
+                  <th>分享与社区</th>
+                  <th>跨品牌 / 开放性</th>
+                  <th>主要工作流断点</th>
+                  <th>证据状态 / 来源</th>
+                  <th>可借鉴点</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bambu 生态</strong><span>MakerWorld · MakerLab · Studio / Handy</span></td>
+                  <td>硬件入口的"内容 + 创作 + 打印配置 + 交易"生态型对标</td>
+                  <td>选模型 → 打印；MakerLab 用特定任务生成器降低定制门槛</td>
+                  <td>MakerLab 是任务生成器集合，非通用 CAD</td>
+                  <td>OpenSCAD 脚本模板，用户网页调参；模板供给依赖创作者</td>
+                  <td>聚合混元 3D、Tripo、Meshy 等引擎，与平台积分相连</td>
+                  <td>Studio 内可做部分调整；网页端通用网格编辑/修复有限</td>
+                  <td>模型关联经测试的 3MF 配置，Studio 切片、Handy 远程；自有设备链路最完整</td>
+                  <td>自有模型社区、配置协作、评价与创作者激励机制成熟</td>
+                  <td>Studio 支持部分第三方机型；深度能力与部分激励绑定自有设备，公开 API 待复查</td>
+                  <td>模板外自由设计受限；AI 产物仍需检查修复；第三方设备 App / 远程体验弱</td>
+                  <td>官方文档 + 第三方实测（C07 深度笔记）；作者曾亲测但无文字记录，本轮未亲测</td>
+                  <td>"模型 + 经测试配置"作为分发单元，消灭自有用户切片断点；零技能生成器降低消费侧门槛</td>
+                </tr>
+                <tr>
+                  <td><strong>SelfCAD</strong><span>独立 Web 一体化 · 未注册亲测</span></td>
+                  <td>形态最接近的独立竞品：浏览器内建模、网格修复、切片输出 G-code</td>
+                  <td>形状生成器、草图与交互式教程引导上手</td>
+                  <td>浏览器内网格建模、变换、布尔、雕刻</td>
+                  <td>有数值输入与齿轮/螺纹生成器；无特征历史树、无可分享的持久参数体系</td>
+                  <td>2026-08 上线实验性 AI Assistant，能力与计费待验证</td>
+                  <td>网格编辑较完整；Magic Fix 做非流形修复，口碑存在分化</td>
+                  <td>内置切片器（层高/填充/支撑）输出 G-code；无已确认的远程监控闭环</td>
+                  <td>无自有 UGC 社区，模型库依赖与 MyMiniFactory 合作及外部平台</td>
+                  <td>G-code 可跨设备；无已确认的远程设备控制 / 云打印链路</td>
+                  <td>链路止于导出 G-code；社区、设备连接、分享后参数再定制缺失</td>
+                  <td>官方资料 + 第三方评测（C04 深度笔记）；未注册亲测</td>
+                  <td>"创作流内即时修复"的位置设计；交互式教程用于新手冷启动与教育场景</td>
+                </tr>
+                <tr>
+                  <td><strong>Meshy</strong><span>AI 创作能力型 · 未做独立实测</span></td>
+                  <td>文本/图片生成 3D，提供面向 3D 打印的生成与后处理套件</td>
+                  <td>文本/图片生成，无需建模技能</td>
+                  <td>无通用建模能力，以生成结果为创作起点</td>
+                  <td><span class="na">本轮未覆盖</span>（AI 输出为网格，非参数化 CAD）</td>
+                  <td>自有生成引擎；检测、修复、分割、多色导出是打印套件重点</td>
+                  <td>导出前可打印性检测（薄壁/悬空/孔洞/非流形）+ Auto Repair + 自动分割；效果未独立验证</td>
+                  <td>导出 STL/3MF；官方列 3 款直连切片器，媒体称 8 款，数量待实测</td>
+                  <td>设有打印服务"创意工坊"；社区机制本轮未覆盖</td>
+                  <td>第三方工具定位，天然硬件中立；跨切片器实际链路待实测</td>
+                  <td>生成结果应"按草稿处理"：需查非流形与内部重叠壳；不适合尺寸受控的功能件</td>
+                  <td>官网 R25 + 垂直媒体 R07 + 第三方实测 R33；本轮未做独立生成实测</td>
+                  <td>生成后立即衔接检测、修复与多色导出，把"能不能打"前置到导出之前</td>
+                </tr>
+                <tr>
+                  <td><strong>Tripo</strong><span>VAST 旗下 · AI 创作能力型 · 未独立实测</span></td>
+                  <td>官方主打 print &amp; engine ready；需求母体为游戏/动画，3D 打印是延伸场景</td>
+                  <td>文本/图片生成，无需建模技能</td>
+                  <td>无通用建模能力，以生成结果为起点</td>
+                  <td><span class="na">本轮未覆盖</span>（输出为网格）</td>
+                  <td>自有生成引擎 + Smart Mesh</td>
+                  <td><span class="na">本轮未覆盖</span>（官方仅称输出可进入切片器）</td>
+                  <td>官方称支持 GLB/FBX/OBJ/STL/USDZ/3MF 并兼容切片器；营销口径，未实测</td>
+                  <td><span class="na">本轮未覆盖</span></td>
+                  <td>第三方工具定位，硬件中立；实际链路待实测</td>
+                  <td><span class="na">本轮未覆盖</span>；同属"网格输出 + 后续依赖外部工具"类型</td>
+                  <td>官网 R22 + 垂直媒体 R07；实际网格质量未经独立实测</td>
+                  <td>多格式（含 3MF）一键导出与"打印就绪"产品叙事，降低导出环节流失</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- 章节 1-2 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <div>
+            <h3>用户痛点与产品机会</h3>
+            <p>从创作者在设计到打印流程中的真实阻碍出发，识别产品切入点。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="card-grid" style="margin-top: 4px">
+            <div class="card">
+              <div class="card__head">
+                <div class="card__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16h.01" />
+                  </svg>
+                </div>
+                <h4>核心痛点</h4>
+              </div>
+              <ul class="point-list point-list--joined">
+                <li><span class="pnum">1.</span><span><b>用户能力分层明显</b>：专业用户通常借助专业建模软件完成设计，再上传模型进行打印；普通用户则受建模与操作门槛限制，难以开始创作，部分消费级打印机购入数月后便可能闲置。</span></li>
+                <li><span class="pnum">2.</span><span><b>社区模型使用门槛高</b>：部分社区模型虽支持参数化编辑，但缺乏统一的交互规范，不同模型的操作界面各异，使用说明也往往过于专业，增加了理解与使用成本。</span></li>
+                <li><span class="pnum">3.</span><span><b>AI 生成模型难以继续编辑</b>：AI 生成的模型缺乏便捷的后续编辑能力，用户难以进一步调整结构与参数，限制了创意的深化与定制。</span></li>
+                <li><span class="pnum">4.</span><span><b>创作与打印流程割裂</b>：创意、建模、切片、打印与分享分散在不同工具或平台中，工具切换与文件、参数迁移增加了操作成本。</span></li>
+                <li><span class="pnum">5.</span><span><b>打印试错成本高</b>：切片参数复杂，打印结果难以提前准确判断；发生失败后，问题定位与反复调试也增加了时间和耗材成本。</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card__head">
+                <div class="card__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3" /><circle cx="12" cy="12" r="4" />
+                  </svg>
+                </div>
+                <h4>产品机会</h4>
+              </div>
+              <ul class="point-list point-list--joined">
+                <li><span class="pnum">1.</span><span><b>双模式设计，兼顾专业创作与大众上手</b>：为专业用户提供更高的创作自由度，为普通用户提供更简单的操作路径，降低入门门槛，帮助用户更顺利地完成打印。</span></li>
+                <li><span class="pnum">2.</span><span><b>面向普通用户的低门槛参数化模板</b>：提供操作简明、参数可调的创作模板，让普通用户无需从零建模，也能按需调整并完成个性化创作。</span></li>
+                <li><span class="pnum">3.</span><span><b>AI 辅助创意共创</b>：将 AI 融入创意生成与建模流程，拓展创意探索方式，并让生成结果能够继续编辑与优化。</span></li>
+                <li><span class="pnum">4.</span><span><b>一体化创作平台</b>：打通「创意 → 建模 → 切片 → 打印 → 分享」完整流程，减少工具切换与文件迁移，让创作和打印衔接更顺畅。</span></li>
+                <li><span class="pnum">5.</span><span><b>虚拟打印与预览</b>：在实际打印前预览模型与打印过程，辅助识别潜在问题，降低试错成本，提升打印准备的可控性。</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 章节 1-3 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <div>
+            <h3>创意工具「定制萝卜塔」</h3>
+            <p>以七步任务链呈现极简 / 专业两种模式从灵感到分享的功能分工。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="prose">
+            <p>
+              创意工具以「<strong>定制萝卜塔</strong>」为首个设计对象，采用<strong>极简 / 专业双模式</strong>，
+              创作主线是<strong>平台内原生参数化建模</strong>，AI 负责辅助生成、模板选择与参数推荐。
+              以下为完整任务链在两种模式下的功能分工。
+            </p>
+          </div>
+
+          <div class="chain-scroll">
+            <div class="chain chain--steps">
+              <div class="chain__corner"></div>
+              <div class="step-item"><span class="step-dot">1</span><span class="step-name">找创意</span></div>
+              <div class="step-item"><span class="step-dot">2</span><span class="step-name">生成 / 定制</span></div>
+              <div class="step-item"><span class="step-dot">3</span><span class="step-name">修改</span></div>
+              <div class="step-item"><span class="step-dot">4</span><span class="step-name">检查（可打印性）</span></div>
+              <div class="step-item"><span class="step-dot">5</span><span class="step-name">切片配置</span></div>
+              <div class="step-item"><span class="step-dot">6</span><span class="step-name">打印</span></div>
+              <div class="step-item"><span class="step-dot">7</span><span class="step-name">分享</span></div>
+            </div>
+            <details class="fold" style="margin-top: 20px">
+              <summary><span class="fold__mark">＋</span>展开极简 / 专业两种模式的逐步骤功能分工</summary>
+                            <div class="table-wrap" style="margin-top: 4px">
+                                <table class="matrix chain-matrix" style="min-width: 1500px">
+                  <thead>
+                    <tr>
+                      <th>模式</th>
+                      <th>找创意</th>
+                      <th>生成 / 定制</th>
+                      <th>修改</th>
+                      <th>检查（可打印性）</th>
+                      <th>切片配置</th>
+                      <th>打印</th>
+                      <th>分享</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>极简模式</strong><span>普通玩家</span></td>
+                      <td>从 6 类模板中选择：标准、圣诞树、南瓜、爱心、四叶草、雪糕。</td>
+                      <td>调整截面形状及 7 项参数，实时预览；AI 辅助生成、选择模板并推荐参数。</td>
+                      <td>支持缩放、撤销与重做，可随时返回参数面板继续调整。</td>
+                      <td>提示"通过 / 需处理"，提供一键处理建议；自动修复可预览后再接受。</td>
+                      <td>选择打印机型号与底板；打印配置随模型关联，后续导入外部切片工具。</td>
+                      <td>导出模型文件，并提供对应机型的打印前指引；不直连打印机。</td>
+                      <td>保存草稿、下载或导出模型，一键分享到社区。</td>
+                    </tr>
+                    <tr>
+                      <td><strong>专业模式</strong><span>专业玩家</span></td>
+                      <td>从空白画布或模板起步；AI 提供创意灵感，支持导入图片或模型作参考。</td>
+                      <td>使用线条、基础图形、推拉、偏移、复制、旋转和群组等工具建模；支持组件调参、自定义轮廓与 AI 参数推荐。</td>
+                      <td>选中组件修改属性；支持建模历史回溯，修改早期步骤后自动重算。</td>
+                      <td>分层展示检查结果并高亮问题位置；提供基础错误、风险提示、进阶检查与手动修复入口。</td>
+                      <td>同极简模式：选择机型、底板并关联打印配置。</td>
+                      <td>提供模型导出与打印指引；虚拟打印（模拟打印过程）仍待评估。</td>
+                      <td>支持草稿、导出与社区分享；社区发布与授权机制待设计。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+
+          <p class="chain-note">
+            步骤 4 的检查项与阈值、步骤 5 的配置规则及步骤 6 的虚拟打印范围，均为 PRD 中待验证 / 待评估内容。
+          </p>
+        </div>
+      </section>
+
+      <!-- 章节 1-4 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <div>
+            <h3>产品功能架构</h3>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="prose" style="margin-bottom: 20px">
+            <p>
+              架构按<strong>双用户 × 五大功能模块</strong>组织，以「定制萝卜塔」已构想的功能填充。
+            </p>
+          </div>
+
+          <div class="fmap-overview">
+            <div class="fmap-overview__item">
+              <h5>双模式</h5>
+              <div class="mode-block">
+                <div class="mode-title">极简模式</div>
+                <p class="mode-desc">模板 + 参数调整 + 3D 预览</p>
+              </div>
+              <div class="mode-block">
+                <div class="mode-title">专业模式</div>
+                <p class="mode-desc">建模组件 + 建构历史 + AI 辅助探索</p>
+              </div>
+            </div>
+            <div class="fmap-overview__item">
+              <h5>五大功能模块</h5>
+              <ul>
+                <li>在线建模（含参数化）</li>
+                <li>模型编辑与优化</li>
+                <li>打印预览与仿真</li>
+                <li>社区分享与下载</li>
+                <li>AI 辅助生成</li>
+              </ul>
+            </div>
+            <div class="fmap-overview__item">
+              <h5>通用支撑能力</h5>
+              <ul>
+                <li>账户与文件管理</li>
+                <li>新手引导 / AI 客服</li>
+                <li>插件生态、外部软件协作仅作候选扩展，不承诺深度集成</li>
+              </ul>
+            </div>
+          </div>
+
+          <details class="fold" style="margin-top: 20px">
+            <summary><span class="fold__mark">＋</span>展开完整功能对照表（5 大模块 × 极简 / 专业双模式）</summary>
+            <table class="fmap">
+              <thead>
+                <tr>
+                  <th>功能</th>
+                  <th>极简模式</th>
+                  <th>专业模式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1. 在线建模（含参数化）</td>
+                  <td>6 类模板库；截面形状选项；七项参数调整与 3D 实时预览（参数初始值、范围与联动待验证）</td>
+                  <td>空白画布起步；线 / 基础图形 / 推拉 / 偏移 / 群组等组件建模，逐组件调属性；组件编辑创建自定义轮廓；建构历史回溯；同样可用模板与参数面板</td>
+                </tr>
+                <tr>
+                  <td>2. 模型编辑与优化</td>
+                  <td>选择、缩放、撤销 / 重做，回到参数面板反复调整</td>
+                  <td>组件级选择与属性编辑；建构历史中回到早期步骤修改后重算；壁厚、减面等可打印性处理待设计</td>
+                </tr>
+                <tr>
+                  <td>3. 打印预览与仿真</td>
+                  <td>底板、选择打印机型号；关联打印配置随文件交付外部切片环节；不自建完整切片器、不直连打印机</td>
+                  <td>同极简模式；虚拟打印（模拟实际打印过程）尚待评估</td>
+                </tr>
+                <tr>
+                  <td>4. 社区分享与下载</td>
+                  <td>保存草稿、下载 / 导出、分享到社区入口</td>
+                  <td>同极简模式；发布、授权、改版与创作者激励机制待设计</td>
+                </tr>
+                <tr>
+                  <td>5. AI 辅助生成</td>
+                  <td>辅助生成、辅助模板选择、参数推荐，推荐结果可改；AI 草稿转为参数化模板的能力待确认</td>
+                  <td>同三类辅助能力；可引入图片 / 模型作为创作参考；外部建模软件协作仅作候选扩展</td>
+                </tr>
+              </tbody>
+            </table>
+          </details>
+        </div>
+      </section>
+
+      <!-- 章节 1-5 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <div>
+            <h3>AI × 参数化建模概念展示</h3>
+            <p>展示 AI 辅助生成与参数化调整结合的核心产品概念。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <style>
+            /* 第五章概念界面轮播（随页面内联，避免外部样式表缓存导致布局失效） */
+            .concept-carousel {
+              position: relative;
+              padding: 0;
+              overflow: hidden;
+              align-items: stretch;
+              justify-content: flex-start;
+              background: #fff;
+              touch-action: pan-y;
+            }
+            .concept-carousel__viewport {
+              position: absolute;
+              inset: 0;
+              overflow: hidden;
+              border-radius: inherit;
+            }
+            .concept-carousel__track {
+              display: flex;
+              width: 100%;
+              height: 100%;
+              transition: transform 0.35s ease;
+              will-change: transform;
+            }
+            .concept-carousel__track img {
+              flex: 0 0 100%;
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              object-position: center;
+              background: #fff;
+              user-select: none;
+              -webkit-user-drag: none;
+            }
+            .concept-carousel__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 36px;
+              height: 36px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: none;
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 0.92);
+              color: var(--text);
+              box-shadow: 0 2px 10px rgba(15, 12, 40, 0.14);
+              cursor: pointer;
+              z-index: 2;
+              transition: background 0.2s ease;
+            }
+            .concept-carousel__btn svg { width: 18px; height: 18px; }
+            .concept-carousel__btn:hover { background: #fff; }
+            .concept-carousel__btn--prev { left: 14px; }
+            .concept-carousel__btn--next { right: 14px; }
+            .concept-carousel__dots {
+              position: absolute;
+              left: 50%;
+              bottom: 12px;
+              transform: translateX(-50%);
+              display: flex;
+              gap: 8px;
+              z-index: 2;
+            }
+            .concept-carousel__dot {
+              width: 8px;
+              height: 8px;
+              padding: 0;
+              border: none;
+              border-radius: 50%;
+              background: rgba(15, 12, 40, 0.22);
+              cursor: pointer;
+              transition: background 0.2s ease, width 0.2s ease;
+            }
+            .concept-carousel__dot.is-active {
+              background: var(--primary, #7c5cfc);
+              width: 20px;
+              border-radius: 5px;
+            }
+            @media (max-width: 560px) {
+              .concept-carousel__btn { width: 32px; height: 32px; }
+              .concept-carousel__btn--prev { left: 8px; }
+              .concept-carousel__btn--next { right: 8px; }
+            }
+          </style>
+          <div class="placeholder placeholder--frame concept-carousel" id="conceptCarousel"
+               aria-roledescription="轮播" aria-label="AI 与参数化建模概念界面" tabindex="0">
+            <div class="concept-carousel__viewport">
+              <div class="concept-carousel__track">
+                <img src="project-materials/3d-printing-platform/figma%20界面/微信图片_2026-10-17_124437_620.png?v=20261018b"
+                     alt="概念界面：模板库" draggable="false" />
+                <img src="project-materials/3d-printing-platform/figma%20界面/wechat_longscreenshot_2026-10-17_124610_751.png?v=20261018b"
+                     alt="概念界面：极简模式编辑" draggable="false" />
+                <img src="project-materials/3d-printing-platform/figma%20界面/wechat_longscreenshot_2026-10-17_124647_947.png?v=20261018c"
+                     alt="概念界面：专业模式编辑" draggable="false" />
+              </div>
+            </div>
+            <button type="button" class="concept-carousel__btn concept-carousel__btn--prev" aria-label="上一张">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button type="button" class="concept-carousel__btn concept-carousel__btn--next" aria-label="下一张">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+            <div class="concept-carousel__dots">
+              <button type="button" class="concept-carousel__dot is-active" aria-label="第 1 张"></button>
+              <button type="button" class="concept-carousel__dot" aria-label="第 2 张"></button>
+              <button type="button" class="concept-carousel__dot" aria-label="第 3 张"></button>
+            </div>
+            <script>
+              (function () {
+                var root = document.getElementById('conceptCarousel');
+                if (!root) return;
+                var track = root.querySelector('.concept-carousel__track');
+                var dots = Array.prototype.slice.call(root.querySelectorAll('.concept-carousel__dot'));
+                var total = dots.length, index = 0;
+                var startX = null, deltaX = 0;
+                var wheelLock = false;
+                function go(n) {
+                  index = (n + total) % total;
+                  track.style.transform = 'translateX(' + (-index * 100) + '%)';
+                  dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
+                }
+                root.querySelector('.concept-carousel__btn--prev').addEventListener('click', function () { go(index - 1); });
+                root.querySelector('.concept-carousel__btn--next').addEventListener('click', function () { go(index + 1); });
+                dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+                // 移动端左右滑动
+                root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; deltaX = 0; }, { passive: true });
+                root.addEventListener('touchmove', function (e) { if (startX !== null) deltaX = e.touches[0].clientX - startX; }, { passive: true });
+                root.addEventListener('touchend', function () {
+                  if (Math.abs(deltaX) > 40) { go(index + (deltaX < 0 ? 1 : -1)); }
+                  startX = null; deltaX = 0;
+                }, { passive: true });
+                // 触控板 / 鼠标横向滚轮（惯性滚动期间锁定，一次手势只切换一张）
+                root.addEventListener('wheel', function (e) {
+                  if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 12 || wheelLock) return;
+                  e.preventDefault();
+                  go(index + (e.deltaX < 0 ? -1 : 1));
+                  wheelLock = true;
+                  setTimeout(function () { wheelLock = false; }, 450);
+                }, { passive: false });
+                // 键盘左右键
+                root.addEventListener('keydown', function (e) {
+                  if (e.key === 'ArrowLeft') { go(index - 1); }
+                  else if (e.key === 'ArrowRight') { go(index + 1); }
+                });
+              })();
+            </script>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         项目二：工业微型无人机应急搜救方案（6 个章节）
+         ============================================================ -->
+    <div class="container">
+      <header class="project-block__header reveal" id="project-drone">
+        <p class="project-block__label">PROJECT 02</p>
+        <div>
+          <h2>工业微型无人机应急搜救方案</h2>
+          <p>
+            面向<strong>地震废墟搜救</strong>场景的微型无人机系统<strong>概念方案</strong>，旨在支持救援队伍在
+            <strong>无 GPS 的复杂空间</strong>中开展<strong>生命探测与现场勘察</strong>。
+            分析依据来自场景分析、竞品研究，以及地震救援与无人机救援纪录片。
+          </p>
+          <div class="project-block__badges">
+            <span class="badge">场景分析</span>
+            <span class="badge">用户旅程</span>
+            <span class="badge">地面站原型</span>
+            <span class="badge badge--neutral">高保真概念界面已完成</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 章节 2-1 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <div>
+            <h3>场景分析与问题定义</h3>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="prose">
+            <p>
+              地震废墟搜救中，救援队伍需要在结构不稳定、视野受限且<strong>无 GPS 信号</strong>的
+              废墟空间内完成生命探测与现场勘察。本章基于场景分析与纪录片观察，
+              将「风险评估 → 实施搜救」环节的核心问题归纳为四个能力缺口——
+            </p>
+          </div>
+          <div class="card-grid" style="margin-top: 24px">
+            <div class="card">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" />
+                </svg>
+              </div>
+              <h4>作业环境约束</h4>
+              <p>昏暗狭窄、断电与弱信号、路线复杂、高温、有毒气体、结构不稳定（共六项）。</p>
+              <details class="fold">
+                <summary><span class="fold__mark">＋</span>展开六项环境约束</summary>
+                <p style="margin-top: 10px">1. 救援环境昏暗、狭窄</p>
+                <p>2. 电源被切断、信号不佳（无公网 / 无 GPS）</p>
+                <p>3. 驾驶路线复杂易出错</p>
+                <p>4. 高温</p>
+                <p>5. 有毒气体</p>
+                <p>6. 废墟结构不稳定，存在二次坍塌风险</p>
+              </details>
+            </div>
+            <div class="card">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16h.01" />
+                </svg>
+              </div>
+              <h4>核心问题 · 四个能力缺口</h4>
+              <p><strong>进得去</strong>——人员贸然进入盲区风险极大，传统无人机体积大、难以深入缝隙</p>
+              <p><strong>看得清</strong>——废墟内部低光、高粉尘，普通摄像头难以获得可用画面</p>
+              <p><strong>定位准</strong>——无 GPS 与信号遮挡下常规导航失效，坐标传递低效易错</p>
+              <p><strong>撤得回</strong>——画面卡顿、失控与续航限制带来坠机风险与决策焦虑</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 章节 2-2 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <div>
+            <h3>竞品分析</h3>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="prose">
+            <p>
+              聚焦四家直接竞品的代表机型，围绕<strong>无 GPS 环境定位、狭小空间通过性、探测载荷与地面站协同</strong>等维度对比。
+              基于竞品研究观察，方案聚焦三个<strong>待验证的机会方向</strong>：
+            </p>
+          </div>
+          <div class="card-grid" style="margin-top: 12px">
+            <div class="card">
+              <h4>1. 超微型穿缝＋无 GPS 自主飞行</h4>
+              <p>素材范围内未见同时明确覆盖两项能力的公开机型记录。本方案的核心概念方向，需技术可行性验证。</p>
+            </div>
+            <div class="card">
+              <h4>2. 面向搜救任务流的指挥端整合</h4>
+              <p>竞品地面站公开功能多为通用多机协同与数据回传；围绕"建模划区 → 穿缝侦查 → 目标定位 → 力量调度 → 战报生成"任务流的深度整合未见公开记录，需与实际救援工作流对照验证。</p>
+            </div>
+            <div class="card">
+              <h4>3. 兴奋型能力差异化</h4>
+              <p>3D 空间实时建模、搜救路径智能推荐（Kano 兴奋型需求）在竞品公开能力中未见对应，可作为概念方案的演示重点；能力本身待设计、待验证。</p>
+            </div>
+          </div>
+
+          <details class="fold" style="margin-top: 28px">
+            <summary><span class="fold__mark">＋</span>展开完整竞品分析（4 家直接竞品 × 5 项维度与研究观察）</summary>
+
+          <div class="legend matrix-legend" style="margin-top: 12px">
+            <span><span class="na" style="color: var(--primary-soft)">本轮素材未记录</span>＝公开资料未覆盖，不代表竞品不具备该能力</span>
+            <span><span class="na" style="color: var(--primary-soft)">来源待核实</span>＝量化信息未注明出处或统计口径，引用前需核实</span>
+          </div>
+
+          <div class="table-wrap">
+            <table class="matrix" style="min-width: 1300px">
+              <colgroup>
+                <col style="width: 170px" />
+                <col style="width: 310px" />
+                <col style="width: 280px" />
+                <col style="width: 300px" />
+                <col style="width: 240px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>企业 / 代表机型</th>
+                  <th>相关产品能力与特点</th>
+                  <th>搜救相关案例或应用</th>
+                  <th>与本方案相关的观察</th>
+                  <th>信息缺口与核实状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>纵横股份</strong><span>PH-007 便携式多旋翼</span></td>
+                  <td>整机全碳纤维，开放式机电一体化载荷接口（可配四光吊舱、喊话器、探照灯、激光雷达）；标称续航 75–85 min、抗风 LV6；BDS / GLONASS / GPS 定位。参数为厂商标称值，口径未注明</td>
+                  <td>四川汉源县马烈乡"7·20"山洪泥石流救援：CW-15 监控无人机系统与 PH-20 激光雷达 / 监控系统（光电吊舱、喊话器、探照灯、抛投器）提供激光点云数据，结合 GIS 做隐患分析与风险评估（来源待核实）</td>
+                  <td>应急救援有公开案例记录；地面站（TC-200 / GCS-303）与行业软件体系较完整；代表机型公开资料未见进入狭窄缝隙 / 室内的标注</td>
+                  <td>整机重量、能否进入狭窄缝隙等字段<span class="na">本轮素材未记录</span>；"智慧巴中"1.06 亿中标金额<span class="na">来源待核实</span></td>
+                </tr>
+                <tr>
+                  <td><strong>普宙科技</strong><span>UAV-P300 轻型四旋翼</span></td>
+                  <td>5000 万超清像素、4K 全彩夜视、光学透雾、智能 AI 避障、视觉 SLAM、21T 机载算力；整机 1850 g，标称续航 50 min；多载荷适配。参数为厂商标称值，口径未注明</td>
+                  <td>2023 年武汉市城市消防案例；2023 年黑龙江林区防火案例（来源待核实）；应用场景含应急消防</td>
+                  <td>视觉 SLAM 与夜视透雾能力与本方案无 GPS 场景方向相关；地面站功能含多机协同、数据实时回传与归档；场景化方案完整度素材评价为"高"</td>
+                  <td>集群相关参数<span class="na">本轮素材未记录</span>；国家级认证等表述<span class="na">来源待核实</span></td>
+                </tr>
+                <tr>
+                  <td><strong>道通智能</strong><span>EVO Max 4NZ V2</span></td>
+                  <td>720° 全向避障、高精度视觉导航、A-Mesh 自组网、双夜视相机（标称 350 米夜间识人）、抗干扰、电池热替换；整机 1640 g，标称续航 42 min、图传 15 km。参数为厂商标称值，口径未注明</td>
+                  <td>应急救援落地记录<span class="na">本轮素材未记录</span>（素材仅记录工业巡检：中石油油田巡检；安防：深圳福田区交警合作）</td>
+                  <td>A-Mesh 自组网与视觉导航对应本方案的集群通信与无 GPS 导航方向；基于素材记录，应急救援场景公开落地记录少于其他三家</td>
+                  <td>应急救援字段为空，仅表示素材未记录；集群协同参数<span class="na">本轮素材未记录</span></td>
+                </tr>
+                <tr>
+                  <td><strong>中科晶锐</strong><span>智蜂微型智能无人直升机</span></td>
+                  <td>整机 135 g、机身 216×34×75 mm，素材明确标注"能"进入狭窄缝隙 / 室内；双光摄像头 + 机载 AI 目标检测（人、车等）；标称续航 25 min；GPS / 光流 / 北斗定位。参数为厂商标称值，口径未注明</td>
+                  <td>应用场景含"灾害应急搜索与救援响应"；已与 10 余个省市公安部门达成合作（来源待核实）</td>
+                  <td>素材中唯一明确标注可进入狭窄缝隙的代表机型，形态最接近本方案"进得去"方向；续航相对较短（标称 25 min）</td>
+                  <td>地面站、自主避障等级、集群参数<span class="na">本轮素材未记录</span>；营收等量化信息<span class="na">来源待核实</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="prose" style="margin-top: 28px">
+            <p><strong>主要观察</strong>（基于素材记录归纳，未经独立核实）：</p>
+          </div>
+          <ul class="point-list">
+            <li><b>穿缝能力是稀缺标注项</b>：四家代表机型中，仅智蜂被明确标注"能"进入狭窄缝隙 / 室内，其余三家素材未标注——仅表示未记录，不代表其产品线不具备类似能力。</li>
+            <li><b>无 GPS 导航有局部公开信息</b>：部分代表机型公开资料提及光流、视觉 SLAM、视觉导航、A-Mesh 自组网等技术；但"废墟内部无 GPS 自主穿缝搜索"的完整公开方案在四家素材中均未见记录。</li>
+            <li><b>集群能力公开信息不足</b>：四家集群相关参数素材均为空，暂无法评估各家集群协同水平。</li>
+            <li><b>落地与商业模式</b>：应急救援落地记录存在分化（纵横、普宙有公开案例，道通素材未记录）；四家均涉及整体解决方案业务，交付模式与收入结构有所差异。</li>
+          </ul>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- 章节 2-3 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <div>
+            <h3>用户角色与任务需求</h3>
+            <p>识别搜救任务中的关键角色及其目标、任务与痛点。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="card-grid">
+            <div class="card">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="3.2" /><path d="M5.5 20c.8-3.2 3.2-4.8 6.5-4.8s5.7 1.6 6.5 4.8" />
+                </svg>
+              </div>
+              <h4>现场指挥官（主要用户）</h4>
+              <p><strong>目标</strong>：快速、安全地定位幸存者，完成搜救任务闭环。</p>
+              <p><strong>核心需求</strong>：全局态势可视化；目标精准定位与坐标传递；设备状态透明；任务数据自动汇总成报。</p>
+              <details class="fold">
+                <summary><span class="fold__mark">＋</span>展开关键任务</summary>
+                <p style="margin-top: 10px"><strong>关键任务</strong>：风险评估、划定重点搜救区域；监控回传画面、指挥飞行器入缝；确认目标、标记坐标；调度突击组破拆；导出数据、向上级汇报。</p>
+              </details>
+            </div>
+            <div class="card">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="3.2" /><path d="M5.5 20c.8-3.2 3.2-4.8 6.5-4.8s5.7 1.6 6.5 4.8" />
+                </svg>
+              </div>
+              <h4>一线搜救员</h4>
+              <p><strong>目标</strong>：安全、稳定地操控设备完成侦查任务。</p>
+              <p><strong>核心需求</strong>：易上手、飞行稳定、画面清晰实时；异常时有明确的设备自主行为预期。</p>
+              <details class="fold">
+                <summary><span class="fold__mark">＋</span>展开关键任务</summary>
+                <p style="margin-top: 10px"><strong>关键任务</strong>：按指令操控无人机（或监控自主飞行）进入狭窄空间；观察回传画面、发现疑似目标。</p>
+              </details>
+            </div>
+            <div class="card">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="3.2" /><path d="M5.5 20c.8-3.2 3.2-4.8 6.5-4.8s5.7 1.6 6.5 4.8" />
+                </svg>
+              </div>
+              <h4>后勤保障人员</h4>
+              <p><strong>目标</strong>：保障设备随时可用、任务连续。</p>
+              <p><strong>核心需求</strong>：长航时（设计目标，指标待定）；便携运输；快速换电与检修流程；设备状态可检查。</p>
+              <details class="fold">
+                <summary><span class="fold__mark">＋</span>展开关键任务</summary>
+                <p style="margin-top: 10px"><strong>关键任务</strong>：电池更换与续航管理；设备运输、检修与维护。</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 章节 2-4 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <div>
+            <h3>现场指挥官用户旅程</h3>
+            <p>沿搜救任务流程拆解现场指挥官的关键动作、触点与情绪。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="journey-map">
+            <div class="journey-map__stage">
+              <span class="journey-map__dot">1</span>
+              <h4>抵达与快速评估</h4>
+              <p><strong>核心动作</strong>：开展风险评估，确定重点搜救区域</p>
+              <p><strong>主要痛点</strong>：宏观视角缺失，人员贸然进入盲区风险极大</p>
+              <details class="fold" style="margin-top: 8px">
+                <summary><span class="fold__mark">＋</span>展开阶段详情</summary>
+                <p style="margin-top: 10px">😟 焦虑 / 迷茫</p>
+                <p><strong>行为</strong>：开展风险评估、判断二次坍塌风险；听取汇报，确定重点搜救区域</p>
+                <p><strong>痛点</strong>：宏观视角缺失，无法第一时间构建废墟 3D 模型；人员贸然进入盲区风险极大</p>
+                <p><strong>机会</strong>：集群快速扫描生成废墟外部全景图，辅助划分搜救优先级</p>
+              </details>
+            </div>
+            <div class="journey-map__stage">
+              <span class="journey-map__dot">2</span>
+              <h4>部署与侦查</h4>
+              <p><strong>核心动作</strong>：下达起飞指令，监控回传画面，指挥飞行器入缝</p>
+              <p><strong>主要痛点</strong>：体积大难入缝、无 GPS 易迷航、低光粉尘看不清</p>
+              <details class="fold" style="margin-top: 8px">
+                <summary><span class="fold__mark">＋</span>展开阶段详情</summary>
+                <p style="margin-top: 10px">😰 紧张 / 担忧</p>
+                <p><strong>行为</strong>：下达起飞指令，通过平板端监控回传画面，指挥飞行器进入狭窄缝隙</p>
+                <p><strong>痛点</strong>：传统无人机体积大难入缝、无 GPS 易迷航；低光粉尘下看不清；专注飞控易漏画面细节</p>
+                <p><strong>机会</strong>：微型化＋无 GPS 自主飞行；热成像辅助观察温差特征、AI 框选人形 / 体温（待验证）</p>
+              </details>
+            </div>
+            <div class="journey-map__stage">
+              <span class="journey-map__dot">3</span>
+              <h4>目标确认与定位</h4>
+              <p><strong>核心动作</strong>：发现疑似目标，悬停确认并标记坐标</p>
+              <p><strong>主要痛点</strong>：画面抖动难对焦，缺乏精准坐标指引</p>
+              <details class="fold" style="margin-top: 8px">
+                <summary><span class="fold__mark">＋</span>展开阶段详情</summary>
+                <p style="margin-top: 10px">😃 兴奋 / 希望</p>
+                <p><strong>行为</strong>：发现疑似目标，查看热成像与 AI 识别框，指挥悬停确认并标记坐标</p>
+                <p><strong>痛点</strong>：画面抖动难以对焦判断；缺乏精准坐标，难以快速指引地面人员</p>
+                <p><strong>机会</strong>：机载 AI 标记目标并生成 3D 坐标点；双机协同补光确认</p>
+              </details>
+            </div>
+            <div class="journey-map__stage">
+              <span class="journey-map__dot">4</span>
+              <h4>决策与力量调度</h4>
+              <p><strong>核心动作</strong>：通知突击组破拆进入，持续监控环境变化</p>
+              <p><strong>主要痛点</strong>：语音描述位置低效，环境变化难实时掌握</p>
+              <details class="fold" style="margin-top: 8px">
+                <summary><span class="fold__mark">＋</span>展开阶段详情</summary>
+                <p style="margin-top: 10px">😐 专注 / 谨慎</p>
+                <p><strong>行为</strong>：基于标记点通知突击组破拆进入，持续监控周边环境变化</p>
+                <p><strong>痛点</strong>：语音描述位置效率低；无法实时掌握救援队员进入后的环境变化</p>
+                <p><strong>机会</strong>：破拆点实时标注推送至突击队终端；有害气体数据实时回传</p>
+              </details>
+            </div>
+            <div class="journey-map__stage">
+              <span class="journey-map__dot">5</span>
+              <h4>任务复盘与数据归档</h4>
+              <p><strong>核心动作</strong>：回收无人机，导出数据并向上级汇报</p>
+              <p><strong>主要痛点</strong>：数据碎片化难成战报，续航短频繁换电</p>
+              <details class="fold" style="margin-top: 8px">
+                <summary><span class="fold__mark">＋</span>展开阶段详情</summary>
+                <p style="margin-top: 10px">😌 释然 / 疲惫</p>
+                <p><strong>行为</strong>：回收无人机，导出搜索路径与探测记录，向上级汇报</p>
+                <p><strong>痛点</strong>：数据碎片化，难以形成完整搜救战报；续航短，频繁换电打断搜救节奏</p>
+                <p><strong>机会</strong>：一键生成区域覆盖热力图与搜救报告；长航时设计目标（指标待定）</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 章节 2-5 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <div>
+            <h3>产品功能架构</h3>
+            <p>围绕搜救任务流程组织无人机系统与地面站的功能模块。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <div class="arch">
+            <div class="arch__layer">
+              <span class="arch__layer-name">任务层</span>
+              <div class="arch__chips">
+                <span class="arch__chip">抵达与评估</span>
+                <span class="arch__chip">部署与侦查</span>
+                <span class="arch__chip">目标确认与定位</span>
+                <span class="arch__chip">决策与力量调度</span>
+                <span class="arch__chip">任务复盘与归档</span>
+              </div>
+            </div>
+            <div class="arch__layer">
+              <span class="arch__layer-name">地面站功能层</span>
+              <div class="arch__chips">
+                <span class="arch__chip arch__chip--plan">实时地图</span>
+                <span class="arch__chip arch__chip--plan">多机状态监控</span>
+                <span class="arch__chip arch__chip--plan">搜救标记</span>
+                <span class="arch__chip arch__chip--plan">任务下发</span>
+                <span class="arch__chip arch__chip--plan">数据回放</span>
+                <span class="arch__chip arch__chip--plan">报告生成</span>
+              </div>
+            </div>
+            <div class="arch__layer">
+              <span class="arch__layer-name">无人机能力层</span>
+              <div class="arch__chips">
+                <span class="arch__chip arch__chip--plan">自主避障</span>
+                <span class="arch__chip arch__chip--plan">热成像与可见光双摄</span>
+                <span class="arch__chip arch__chip--plan">语音喊话</span>
+                <span class="arch__chip arch__chip--plan">照明</span>
+                <span class="arch__chip arch__chip--plan">气体检测</span>
+                <span class="arch__chip arch__chip--plan">自动返航</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 章节 2-6 -->
+      <section class="chapter reveal">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <div>
+            <h3>地面站原型与方案展示</h3>
+            <p>展示地面站操作界面原型与整体方案形态。</p>
+          </div>
+        </div>
+        <div class="chapter__body chapter__body--offset">
+          <style>
+            /* 第六章地面站轮播（随章节内联，复用项目一第五章已验证实现，避免外部样式表缓存导致布局失效） */
+            .concept-carousel {
+              position: relative;
+              padding: 0;
+              overflow: hidden;
+              align-items: stretch;
+              justify-content: flex-start;
+              background: #fff;
+              touch-action: pan-y;
+            }
+            .concept-carousel__viewport {
+              position: absolute;
+              inset: 0;
+              overflow: hidden;
+              border-radius: inherit;
+            }
+            .concept-carousel__track {
+              display: flex;
+              width: 100%;
+              height: 100%;
+              transition: transform 0.35s ease;
+              will-change: transform;
+            }
+            .concept-carousel__track img {
+              flex: 0 0 100%;
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              object-position: center;
+              background: #fff;
+              user-select: none;
+              -webkit-user-drag: none;
+            }
+            .concept-carousel__btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 36px;
+              height: 36px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: none;
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 0.92);
+              color: var(--text);
+              box-shadow: 0 2px 10px rgba(15, 12, 40, 0.14);
+              cursor: pointer;
+              z-index: 2;
+              transition: background 0.2s ease;
+            }
+            .concept-carousel__btn svg { width: 18px; height: 18px; }
+            .concept-carousel__btn:hover { background: #fff; }
+            .concept-carousel__btn--prev { left: 14px; }
+            .concept-carousel__btn--next { right: 14px; }
+            .concept-carousel__dots {
+              position: absolute;
+              left: 50%;
+              bottom: 12px;
+              transform: translateX(-50%);
+              display: flex;
+              gap: 8px;
+              z-index: 2;
+            }
+            .concept-carousel__dot {
+              width: 8px;
+              height: 8px;
+              padding: 0;
+              border: none;
+              border-radius: 50%;
+              background: rgba(15, 12, 40, 0.22);
+              cursor: pointer;
+              transition: background 0.2s ease, width 0.2s ease;
+            }
+            .concept-carousel__dot.is-active {
+              background: var(--primary, #7c5cfc);
+              width: 20px;
+              border-radius: 5px;
+            }
+            @media (max-width: 560px) {
+              .concept-carousel__btn { width: 32px; height: 32px; }
+              .concept-carousel__btn--prev { left: 8px; }
+              .concept-carousel__btn--next { right: 8px; }
+            }
+          </style>
+          <div class="placeholder placeholder--frame concept-carousel" id="gsCarousel"
+               aria-roledescription="轮播" aria-label="地面站操作界面概念原型" tabindex="0">
+            <div class="concept-carousel__viewport">
+              <div class="concept-carousel__track">
+                <img src="project-materials/industrial-drones/figma界面/drone-01-overview.png?v=20261019"
+                     alt="地面站概念界面：任务总览" draggable="false" />
+                <img src="project-materials/industrial-drones/figma界面/drone-02-monitoring.png?v=20261019"
+                     alt="地面站概念界面：实时监控" draggable="false" />
+                <img src="project-materials/industrial-drones/figma界面/drone-03-target-location.png?v=20261019"
+                     alt="地面站概念界面：目标定位" draggable="false" />
+                <img src="project-materials/industrial-drones/figma界面/drone-04-dispatch.png?v=20261019"
+                     alt="地面站概念界面：力量调度" draggable="false" />
+                <img src="project-materials/industrial-drones/figma界面/drone-05-review.png?v=20261019"
+                     alt="地面站概念界面：任务复盘" draggable="false" />
+              </div>
+            </div>
+            <button type="button" class="concept-carousel__btn concept-carousel__btn--prev" aria-label="上一张">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button type="button" class="concept-carousel__btn concept-carousel__btn--next" aria-label="下一张">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+            <div class="concept-carousel__dots">
+              <button type="button" class="concept-carousel__dot is-active" aria-label="第 1 张"></button>
+              <button type="button" class="concept-carousel__dot" aria-label="第 2 张"></button>
+              <button type="button" class="concept-carousel__dot" aria-label="第 3 张"></button>
+              <button type="button" class="concept-carousel__dot" aria-label="第 4 张"></button>
+              <button type="button" class="concept-carousel__dot" aria-label="第 5 张"></button>
+            </div>
+            <script>
+              (function () {
+                var root = document.getElementById('gsCarousel');
+                if (!root) return;
+                var track = root.querySelector('.concept-carousel__track');
+                var dots = Array.prototype.slice.call(root.querySelectorAll('.concept-carousel__dot'));
+                var total = dots.length, index = 0;
+                var startX = null, deltaX = 0;
+                var wheelLock = false;
+                function go(n) {
+                  index = (n + total) % total;
+                  track.style.transform = 'translateX(' + (-index * 100) + '%)';
+                  dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
+                }
+                root.querySelector('.concept-carousel__btn--prev').addEventListener('click', function () { go(index - 1); });
+                root.querySelector('.concept-carousel__btn--next').addEventListener('click', function () { go(index + 1); });
+                dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+                // 移动端左右滑动
+                root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; deltaX = 0; }, { passive: true });
+                root.addEventListener('touchmove', function (e) { if (startX !== null) deltaX = e.touches[0].clientX - startX; }, { passive: true });
+                root.addEventListener('touchend', function () {
+                  if (Math.abs(deltaX) > 40) { go(index + (deltaX < 0 ? 1 : -1)); }
+                  startX = null; deltaX = 0;
+                }, { passive: true });
+                // 触控板 / 鼠标横向滚轮（惯性滚动期间锁定，一次手势只切换一张）
+                root.addEventListener('wheel', function (e) {
+                  if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 12 || wheelLock) return;
+                  e.preventDefault();
+                  go(index + (e.deltaX < 0 ? -1 : 1));
+                  wheelLock = true;
+                  setTimeout(function () { wheelLock = false; }, 450);
+                }, { passive: false });
+                // 键盘左右键
+                root.addEventListener('keydown', function (e) {
+                  if (e.key === 'ArrowLeft') { go(index - 1); }
+                  else if (e.key === 'ArrowRight') { go(index + 1); }
+                });
+              })();
+            </script>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 Architect → Product Manager · Portfolio</span>
+      <span><a href="index.html">首页</a> · <a href="#top">回到顶部</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

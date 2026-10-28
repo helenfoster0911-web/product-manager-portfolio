@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architect → Product Manager · 个人作品集</title>
+  <meta
+    name="description"
+    content="从建筑设计到产品经理的转型作品集，聚焦智能硬件、3D 打印与工业无人机方向的两个自主产品实践项目。"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body id="top">
+
+  <!-- ========== 顶部导航 ========== -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">PRODUCT PORTFOLIO</a>
+
+      <button class="nav__toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="#journey" data-section="journey">My Journey</a></li>
+        <li><a href="#projects" data-section="projects">Projects</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__dropdown-toggle" type="button"
+                  aria-haspopup="true" aria-expanded="false">Case Studies</button>
+          <div class="nav__dropdown">
+            <a href="case-study.html#project-3dprint">3D 打印数字平台</a>
+            <a href="case-study.html#project-drone">微型无人机搜救方案</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== 1. Hero ========== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <h1 class="hero__title reveal">
+              ARCHITECT<span class="arrow-mark">→</span><span class="wbr-narrow"><wbr /></span>PRODUCT<br />MANAGER
+            </h1>
+            <p class="hero__subtitle reveal" style="transition-delay: 0.1s">
+              Hi, I'm Fu Huiling — transitioning from Architecture to Product.<br />
+              Exploring Smart Hardware, 3D Printing &amp; Industrial Drones.
+            </p>
+          </div>
+
+          <div class="hero__portrait reveal" style="transition-delay: 0.2s">
+            <img src="project-materials/portrait/portfolio_portrait_transparent.png"
+                 alt="产品经理个人照片" />
+          </div>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#journey" aria-label="向下滚动">
+        <span class="hero__scroll-text">Scroll Down</span>
+        <svg class="hero__scroll-arrow" viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14" />
+          <path d="m19 12-7 7-7-7" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- ========== 2. My Journey ========== -->
+    <section class="section section--tight journey" id="journey">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">My Journey</span>
+          <h2 class="section-title">从建筑设计到产品的探索</h2>
+        </div>
+
+        <p class="journey__intro reveal">
+          建筑设计的全流程工作是在复杂约束中梳理需求、协调多方并推演解决方案的过程，随着项目经验的积累，我更希望把关注点从完成一个设计方案，延伸到理解真实用户需求、发现问题，并持续寻找更合适的解决方式。这也成为我探索产品经理的起点。
+        </p>
+
+        <div class="journey__track">
+          <article class="journey__step reveal">
+            <p class="journey__num">01</p>
+            <span class="year">2020–2025</span>
+            <h3>Architecture Background</h3>
+            <div class="journey__brief">
+              <p>五年建筑设计经验，聚焦商业综合体、城市更新与公共空间等复杂项目，在多方约束下完成需求梳理与方案落地。</p>
+            </div>
+            <div class="journey__footer">
+              <button class="journey__toggle" type="button" aria-expanded="false" aria-controls="journey-detail-1">
+                <span class="journey__toggle-text">Read more</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+              </button>
+            </div>
+            <div class="journey__detail" id="journey-detail-1">
+              <div class="journey__detail-inner">
+                <p>2020年末，我负责为领导组织参展「时间剖面：深圳建筑的可能性」，从协调模型公司、打印公司，到安排展览中的灯光、投影、音乐以及公司品牌部门，我需要把多个环节衔接起来，让整体展览方案得以呈现。这个过程让我发现，自己很享受在多方协作中梳理问题、协调资源并推动方案落地的工作方式。</p>
+                <p>随着工作深入，我也逐渐感受到建筑项目中设计品质与商业利益、预算和现实落地条件之间的矛盾。有时，即使希望创造高品质的空间，项目也可能因为资金不足或其他现实条件而无法落地。这让我开始思考：除了完成一个设计方案，我是否更希望参与问题的发现、定义与持续优化，并让解决方案有机会真正发挥价值？</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="journey__step reveal" style="transition-delay: 0.1s">
+            <p class="journey__num">02</p>
+            <span class="year">2022</span>
+            <h3>Product Discovery</h3>
+            <div class="journey__brief">
+              <p>参与建筑设计行业 AIGC 工具 AIRI 的使用反馈与体验改进，开始从使用者视角观察产品，并逐渐建立产品思维。</p>
+            </div>
+            <div class="journey__footer">
+              <button class="journey__toggle" type="button" aria-expanded="false" aria-controls="journey-detail-2">
+                <span class="journey__toggle-text">Read more</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+              </button>
+            </div>
+            <div class="journey__detail" id="journey-detail-2">
+              <div class="journey__detail-inner">
+                <p>2022 年，我所在的第一家公司开始研发面向建筑设计行业的 AIGC 工具 AIRI。在配合 AIRI 团队进行产品研发与优化的过程中，我开始留意用户实际使用工具的方式，以及使用过程中遇到的问题和真实需求，也会研究其他产品如何解决类似问题。</p>
+                <p>在实际使用中，我发现过生成时间较长、分类繁杂、功能入口不明显、网页不稳定等问题，多次向研发团队反馈使用中的问题与体验感受。也对 UI 设计提出过意见，团队随后针对相关反馈进行了修复。我也因此明确自己感兴趣的不仅是设计最终结果，更是理解用户、发现问题并与团队一起持续优化产品的过程。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="journey__step reveal" style="transition-delay: 0.2s">
+            <p class="journey__num">03</p>
+            <span class="year">自主实践</span>
+            <h3>Product Practice</h3>
+            <div class="journey__brief">
+              <p>通过两个自主实践项目，我把建筑设计与建模经验延伸到 3D 打印数字平台和工业微型无人机应急搜救方向，围绕具体场景开展需求分析、产品规划与方案设计。</p>
+            </div>
+            <div class="journey__footer">
+              <button class="journey__toggle" type="button" aria-expanded="false" aria-controls="journey-detail-3">
+                <span class="journey__toggle-text">Read more</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+              </button>
+            </div>
+            <div class="journey__detail" id="journey-detail-3">
+              <div class="journey__detail-inner">
+                <p>选择这两个方向，是因为它们都与我已有的经验存在联系，也对应具体的应用问题。3D 打印数字平台让我能够结合建模经验与建筑设计背景，探索将 AI 辅助和参数化建模思路融入创作流程、降低使用门槛的可能性；工业微型无人机应急搜救方案则让我把建筑与规划领域积累的空间认知，延伸到地震废墟等复杂环境中的搜救需求。</p>
+                <p>在这两个自主实践项目中，我围绕行业与用户研究、需求分析、功能架构及原型方案开展产品探索。对我而言，这不仅是将既有能力迁移到新的产品领域，也是进一步练习如何从具体问题出发，形成有逻辑的产品方案。</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. Selected Projects ========== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Selected Projects</span>
+          <h2 class="section-title">两个自主产品实践</h2>
+        </div>
+
+        <!-- 项目一 -->
+        <article class="project-row reveal">
+          <div class="project-row__text">
+            <p class="project-row__index">PROJECT 01</p>
+            <h3>3D 打印数字平台</h3>
+            <p>
+              研究参数化建模与 AI 辅助设计在 3D 打印数字化设计流程中的应用机会，
+              探索面向创作者的创意工具形态。
+            </p>
+            <div class="project-row__tags">
+              <span class="tag">3D 打印</span>
+              <span class="tag">参数化建模</span>
+              <span class="tag">AI 辅助设计</span>
+              <span class="tag">创意工具 PRD</span>
+            </div>
+            <a class="link-arrow" href="case-study.html#project-3dprint">
+              Case Study <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <div class="project-row__media">
+            <img src="project-materials/3d-printing-platform/figma%20%E7%95%8C%E9%9D%A2/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-10-17_124437_620.png"
+                 alt="3D 打印数字平台 Figma 界面截图" />
+          </div>
+        </article>
+
+        <!-- 项目二 -->
+        <article class="project-row reveal">
+          <div class="project-row__text">
+            <p class="project-row__index">PROJECT 02</p>
+            <h3>工业微型无人机应急搜救方案</h3>
+            <p>
+              面向城市坍塌事故的微型搜救无人机系统，帮助救援队伍在无 GPS 的复杂空间中
+              快速完成生命探测与现场勘察。
+            </p>
+            <div class="project-row__tags">
+              <span class="tag">工业无人机</span>
+              <span class="tag">应急搜救</span>
+              <span class="tag">用户旅程</span>
+              <span class="tag">地面站原型</span>
+            </div>
+            <a class="link-arrow" href="case-study.html#project-drone">
+              Case Study <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <div class="project-row__media">
+            <img src="project-materials/industrial-drones/figma%E7%95%8C%E9%9D%A2/drone-02-monitoring.png"
+                 alt="工业微型无人机应急搜救方案 Figma 界面截图" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects 与 Contact 之间的分隔线 -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ========== 4. Contact ========== -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <h2 class="contact__title reveal">CONTACT</h2>
+        <p class="reveal" style="transition-delay: 0.08s">
+          如果您对我的转型经历与产品实践感兴趣，<br />
+          欢迎通过以下方式与我交流。
+        </p>
+
+        <div class="contact__channels reveal" style="transition-delay: 0.16s">
+          <div class="contact__item">
+            <span class="contact__label">Email</span>
+            <a class="contact__value" href="mailto:fuhuiling0911@163.com">fuhuiling0911@163.com</a>
+          </div>
+          <div class="contact__item">
+            <span class="contact__label">Phone</span>
+            <a class="contact__value" href="tel:18860360911">18860360911</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 Architect → Product Manager · Portfolio</span>
+      <span><a href="case-study.html">Case Studies</a> · <a href="#top">回到顶部</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# === 部署不需要的文件 ===
+
+# 备份文件
+*.bak
+*.bak-*
+*.old
+
+# 项目管理/设计源文件
+*.xmind
+*.drawio
+*.sketch
+*.fig
+
+# 压缩包
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# 所有 .md 文档（PRD、竞品分析等不在线上展示），保留项目简介
+*.md
+!PROJECT_BRIEF.md
+
+# 所有 .csv 数据表
+*.csv
+
+# === Git 自身 ===
+.git
+
+# === 编辑器/系统 ===
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# === Vercel 本地工具 ===
+.vercel/
+
+# === Node.js ===
+node_modules/
